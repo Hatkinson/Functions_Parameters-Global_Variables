@@ -3,6 +3,7 @@
 
 import random
 import time
+roll_no = 0
 ## this section contains the graphics for displaying the number rolled
 
 s1 = "- - - - -\n|       |\n|   O   |\n|       |\n- - - - -\n"
@@ -34,7 +35,19 @@ def show_dice(roll_no):
         print(s5)
     if roll_no == 6:
         print(s6)
+        print ("Hooray!!!!")
+    else:
+        print ("Lets keep going")
 ## Main part of the program, roll dice and then display a dice face
-roll_no = roll()
-time.sleep(1)
-show_dice(roll_no)
+# ask the user if they would like to roll a dice accept upper or lowercase entry
+user_input = input("Would you like to roll a dice?(Y/N)")
+# Do this if they want to roll the dice
+if user_input == "y" or user_input == "Y":
+    print ("lets try and roll a six")
+    while roll_no != 6:
+        roll_no = roll()
+        time.sleep(1)
+        show_dice(roll_no)
+# show this message to show that you have understood that they don't want to play
+else:
+    print("Oh Well!")
